@@ -16,6 +16,8 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 import {
@@ -26,93 +28,63 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-declare const global: {HermesInternal: null | {}};
+declare const global: { HermesInternal: null | {} };
+
+const  clickBtn = ()=>{
+  Alert.alert("dianji shijian");
+};
+
 
 const App = () => {
+ 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change
-                this screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <View style={styles.container}>
+      <View style ={styles.flex}> 
+        <View style={styles.input}>
+        </View>
+      </View>
+      {/* <TouchableOpacity style={styles.btn} onPress = {()=>{Alert.alert("dianji shijian")}} > */}
+      <TouchableOpacity style={styles.btn} onPress = {clickBtn} >
+        <Text style={styles.search}>Search</Text>
+      </TouchableOpacity>
+    </View>
+
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flexDirection: "row",
+    height: 45,
+    marginTop: 50
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  flex:{
+    flex: 1
   },
-  body: {
-    backgroundColor: Colors.white,
+  input: {
+    height: 45,
+    borderWidth: 1,
+    marginLeft: 5,
+    paddingLeft: 5,
+    borderColor: "#ccc",
+    borderRadius: 4
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  btn: {
+    width: 55,
+    marginLeft: 5,
+    marginRight: 5,
+    backgroundColor: "#23BEFF",
+    height: 45,
+    justifyContent: "center",
+    alignContent: "center"
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  search: {
+    color: "#FFF",
+    fontSize: 15,
+    fontWeight: "bold",
+  }
+
+
 });
 
 export default App;
