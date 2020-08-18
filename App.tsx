@@ -18,15 +18,9 @@ import {
   StatusBar,
   TouchableOpacity,
   Alert,
+  TextInput,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 declare const global: { HermesInternal: null | {} };
 
@@ -36,17 +30,26 @@ const  clickBtn = ()=>{
 
 
 const App = () => {
+
+  // 通过useState 触发onChangeText1函数时将参数传过来的值存在state中的value中  
+  // It doesn’t matter what names you use. But it can be handy to think of the pattern as [<getter>, <setter>] = useState(<initialValue>)
+  // https://reactnative.cn/docs/intro-react#state-%E7%8A%B6%E6%80%81
+  const [value, onChangeText1] = React.useState('这个是value的默认值');
  
   return (
     <View style={styles.container}>
       <View style ={styles.flex}> 
-        <View style={styles.input}>
-        </View>
+        {/* <View style={styles.input}>
+        </View> */}
+        <TextInput style={styles.input} onChangeText ={text =>{onChangeText1(text)}}></TextInput>
       </View>
       {/* <TouchableOpacity style={styles.btn} onPress = {()=>{Alert.alert("dianji shijian")}} > */}
       <TouchableOpacity style={styles.btn} onPress = {clickBtn} >
         <Text style={styles.search}>Search</Text>
       </TouchableOpacity>
+      <View style ={styles.flex}>
+      <Text>{value}</Text>
+      </View>
     </View>
 
   );
