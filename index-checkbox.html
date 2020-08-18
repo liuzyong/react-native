@@ -51,12 +51,12 @@
                 }));
             }
             render() {
-                var text = this.state.isCheck ? "check" : "uncheck";
+                // var text = this.state.isCheck ? "check" : "uncheck";
                 return (
                     <div>
                         <input type="checkbox" onClick={this.handelChange}>
                         </input>
-                        {this.state.isCheck ? 'ON' : 'OFF'}
+                        {this.state.isCheck ? 'check' : 'uncheck'}
                     </div>
                 );
             }

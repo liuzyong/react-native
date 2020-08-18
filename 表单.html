@@ -11,13 +11,30 @@
     <div id="root"></div>
     <script type="text/babel">
         
-         class ee extends React.Component {
+         class MyFrom extends React.Component {
             constructor(props) {
                 super(props);
+                this.state ={value: ""}
+            }
+            handleChange = (e)=>{
+                this.setState({
+                    value : e.target.value
+                })
+            }
+
+            render(){
+                return(
+                    <div>
+                        <input type="text" onChange ={this.handleChange}/>
+                        <br/>
+                        {this.state.value}
+                    </div>
+
+                )
             }
         }
         ReactDOM.render(
-            <ee >ww</ee>,
+            <MyFrom ></MyFrom>,
             document.getElementById('root')
         );
     </script>
