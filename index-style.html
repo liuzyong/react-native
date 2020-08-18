@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+        .pStyle{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+    // // 设置样式的三种方式
+    // 1、内联样式
+    // 2、对象样式
+    // 3、选择器样式
+
+        const hStyle ={
+            backgroundColor: "red",
+            color: "green"
+        }
+        // 创建一个组件类
+        function HelloMessage(props) {
+            return (
+                // 内联样式
+                <div style ={{backgroundColor: "yellow",borderWidth: 5}}>
+                    <h1 style = {hStyle}>对象样式{props.name}</h1>
+                    <p className = "pStyle">选择器样式{props.sex}</p>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <HelloMessage name="qqq" sex="man">iiiii</HelloMessage>,
+            document.getElementById('root')
+        );
+    </script>
+
+</body>
+
+</html>
