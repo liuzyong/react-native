@@ -19,12 +19,18 @@ import {
   TouchableOpacity,
   Alert,
   TextInput,
+  Image,
 } from 'react-native';
+
+// import GetData from './pages/fetch-demo'
+// import DoubanPro from './pages/index.ios'
+
+import Navigation from './pages/Navigation'
 
 
 declare const global: { HermesInternal: null | {} };
 
-const  clickBtn = ()=>{
+const clickBtn = () => {
   Alert.alert("dianji shijian");
 };
 
@@ -35,22 +41,36 @@ const App = () => {
   // It doesn’t matter what names you use. But it can be handy to think of the pattern as [<getter>, <setter>] = useState(<initialValue>)
   // https://reactnative.cn/docs/intro-react#state-%E7%8A%B6%E6%80%81
   const [value, onChangeText1] = React.useState('这个是value的默认值');
- 
+
   return (
-    <View style={styles.container}>
-      <View style ={styles.flex}> 
-        {/* <View style={styles.input}>
-        </View> */}
-        <TextInput style={styles.input} onChangeText ={text =>{onChangeText1(text)}}></TextInput>
-      </View>
-      {/* <TouchableOpacity style={styles.btn} onPress = {()=>{Alert.alert("dianji shijian")}} > */}
-      <TouchableOpacity style={styles.btn} onPress = {clickBtn} >
-        <Text style={styles.search}>Search</Text>
-      </TouchableOpacity>
-      <View style ={styles.flex}>
-      <Text>{value}</Text>
-      </View>
+    <View style={styles.flex}>
+      <Navigation />
     </View>
+
+
+    // <GetData/>
+    // <View style={styles.container}>
+    //   <View style={styles.flex}>
+    //     {/* <View style={styles.input}>
+    //     </View> */}
+    //     <TextInput style={styles.input} onChangeText={text => { onChangeText1(text) }}></TextInput>
+    //   </View>
+    //   {/* <TouchableOpacity style={styles.btn} onPress = {()=>{Alert.alert("dianji shijian")}} > */}
+    //   <TouchableOpacity style={styles.btn} onPress={clickBtn} >
+    //     <Text style={styles.search}>Search</Text>
+    //   </TouchableOpacity>
+    //   <View style={styles.flex}>
+    //     <Text>{value}</Text>
+    //   </View>
+
+
+    //   <Image style={styles.tinyLogo}
+    //     source={{
+    //       uri: 'https://reactnative.dev/img/tiny_logo.png',
+    //     }}></Image>
+
+
+    // </View>
 
   );
 };
@@ -61,7 +81,7 @@ const styles = StyleSheet.create({
     height: 45,
     marginTop: 50
   },
-  flex:{
+  flex: {
     flex: 1
   },
   input: {
@@ -85,7 +105,11 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 15,
     fontWeight: "bold",
-  }
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
 
 
 });
